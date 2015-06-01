@@ -30,7 +30,17 @@
 
           <div class="form-group" ng-class="{'has-error': myForm.birthday.$dirty && myForm.birthday.$invalid}">
             <label for="birthday">Birthday</label>
-            <input type="text" name="birthday" id="birthday" class="form-control" ng-model="formData[4] | date:'medium'"/>
+            <div class="dropdown">
+                <a class="dropdown-toggle my-toggle-select" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="">
+                    <div class="input-append">
+                      <input type="text" class="input-large form-control" data-ng-model="formData[4] | date:'MMM d, y HH:mm:ss Z'" name="birthday" id="birthday">
+                      <span class="add-on"><i class="icon-calendar"></i></span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <datetimepicker data-ng-model="formData[4]" data-datetimepicker-config="{ dropdownSelector: '.my-toggle-select' }"></datetimepicker>
+                </ul>
+            </div>
           </div>
         </form>
       </div>
