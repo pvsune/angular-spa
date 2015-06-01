@@ -8,6 +8,7 @@ app.controller("myCtrl", function ($scope, $http) {
   req.finally(function () { NProgress.done() });
 
   $scope.rows = 20;
+
   $scope.submit = function () {
     // post to server
     alert("Data submitted!");
@@ -19,8 +20,15 @@ app.controller("myCtrl", function ($scope, $http) {
     $scope.formData = data;
   }
 
-  $scope.resetForm = function () { 
+  $scope.reset = function () { 
     $scope.formTitle = "Add participant";
     $scope.formData = [];
+  }
+   
+  $scope.dt = new Date();
+  $scope.open = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $scope.opened = true;
   }
 });
